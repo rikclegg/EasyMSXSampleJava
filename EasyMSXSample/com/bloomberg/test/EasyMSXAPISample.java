@@ -33,7 +33,7 @@ public class EasyMSXAPISample implements NotificationHandler {
 
 	private void run(String[] args) throws Exception {
 	
-		Log.logLevel = Log.LogLevels.DETAILED;
+		Log.logLevel = Log.LogLevels.NONE;
 
 		System.out.println("Initializing EMSXAPI ");
 
@@ -89,7 +89,7 @@ public class EasyMSXAPISample implements NotificationHandler {
 				System.out.println("Order Notification [" + notification.category.toString() + "|" + notification.type.toString() + "] "  + " Order: " + notification.getOrder().field("EMSX_SEQUENCE").value() + " : No. of affected fields: " + notification.getFieldChanges().size());
 				notification.consume = true;
 				for(FieldChange fc: notification.getFieldChanges()) {
-					//System.out.println("\t\tChange: " + fc.field.name() + "\tOld Value: " + fc.oldValue + "\tNew Value: " + fc.newValue);
+					System.out.println("\t\tChange: " + fc.field.name() + "\tOld Value: " + fc.oldValue + "\tNew Value: " + fc.newValue);
 				}
 			}
 		} 
